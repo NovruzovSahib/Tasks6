@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Runtime;
 
 internal class Program
 {
@@ -14,6 +15,15 @@ internal class Program
         Task8();
         Task9();
         Task10();
+        Task11();
+        Task12();
+        Task13();
+        Task14();
+        Task15();
+        Task16();
+        Task17();
+        Task18();
+        Task19();
         Console.ReadLine();
     }
 
@@ -222,7 +232,7 @@ internal class Program
     }
     public static void Task10()
     {
-        int[,] arr1 = new int[50,50];
+        int[,] arr1 = new int[50, 50];
         int[,] arr2 = new int[50, 50];
         int[,] arr3 = new int[50, 50];
         Console.Write("Enter size of first array: ");
@@ -277,7 +287,343 @@ internal class Program
         Console.Write("\n\n");
 
     }
+    public static void Task11()
+    {
+        int[,] arr = new int[2, 2];
+        Console.WriteLine("Enter rows size of matrix: ");
+        int rows = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter columns size of matrix: ");
+        int columns = int.Parse(Console.ReadLine());
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                Console.Write("element - [{0},{1}] : ", i, j);
+                arr[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        Console.WriteLine("The matrix is: ");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                Console.Write(arr[i, j]);
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine("The Transpose of a matrix is: ");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                Console.Write(arr[j, i]);
+            }
+            Console.WriteLine();
+        }
+    }
+    public static void Task12()
+    {
+        int sum = 0;
+        int[,] arr = new int[2, 2];
+        Console.WriteLine("Enter rows size of matrix: ");
+        int rows = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter columns size of matrix: ");
+        int columns = int.Parse(Console.ReadLine());
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                Console.Write("element - [{0},{1}] : ", i, j);
+                arr[i, j] = Convert.ToInt32(Console.ReadLine());
+                if (i == j)
+                {
+                    sum += arr[i, j];
+                }
+            }
+        }
+        Console.WriteLine("The matrix is: ");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                Console.Write(arr[i, j]);
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine("Addition of the right Diagonal elements is: " + sum);
+    }
+    public static void Task13()
+    {
+        int sum = 0;
+        int[,] arr = new int[2, 2];
+        Console.WriteLine("Enter rows size of matrix: ");
+        int rows = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter columns size of matrix: ");
+        int columns = int.Parse(Console.ReadLine());
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                Console.Write("element - [{0},{1}] : ", i, j);
+                arr[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        Console.WriteLine("The matrix is: ");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                Console.Write(arr[i, j]);
+            }
+            Console.WriteLine();
+        }
+        if (rows == columns)
+        {
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (i == j)
+                    {
+                        sum += arr[j, i];
+                    }
+                }
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine("Addition of the left Diagonal elements is: " + sum);
+    }
+    public static void Task14()
+    {
+        int[,] arr = new int[10, 10];
+        int[] rowsum = new int[10];
+        int[] colsum = new int[10];
+        Console.Write("Input the size of the matrix : ");
+        int x = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                Console.Write($"element - {i},{j}: ");
+                arr[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        Console.WriteLine("The matrix: ");
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                Console.Write(arr[i, j]);
+            }
+            Console.WriteLine();
+        }
+        for (int i = 0; i < x; i++)
+        {
+            rowsum[i] = 0;
+            for (int j = 0; j < x; j++)
+                rowsum[i] += arr[i, j];
+        }
+        for (int i = 0; i < x; i++)
+        {
+            colsum[i] = 0;
+            for (int j = 0; j < x; j++)
+                colsum[i] += arr[j, i];
+        }
+        Console.Write("The sum of row and column of the matrix :\n");
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
+                Console.Write("{0} ", arr[i, j]);
+            Console.Write("{0}", rowsum[i]);
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+        for (int j = 0; j < x; j++)
+        {
+            Console.Write("{0}   ", colsum[j]);
+        }
+    }
+    public static void Task15()
+    {
+        int[,] arr = new int[10, 10];
+        Console.Write("Input the size of the matrix : ");
+        int x = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                Console.Write($"element - {i},{j}: ");
+                arr[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        Console.WriteLine("The matrix: ");
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                Console.Write(arr[i, j]);
+            }
+            Console.WriteLine();
+        }
+        for (int i = 0; i < x; i++)
+        {
+            Console.WriteLine();
+            for (int j = 0; j < x; j++)
+            {
+                if (i >= j)
+                {
+                    Console.Write(arr[i, j]);
+                }
+                else
+                {
+                    Console.Write("");
+                }
+            }
+        }
+    }
+    public static void Task16()
+    {
+        int[,] arr = new int[10, 10];
+        Console.Write("Input the size of the matrix : ");
+        int x = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                Console.Write($"element - {i},{j}: ");
+                arr[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        Console.WriteLine("The matrix: ");
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                Console.Write(arr[i, j]);
+            }
+            Console.WriteLine();
+        }
+        for (int i = 0; i < x; i++)
+        {
+            Console.WriteLine();
+            for (int j = 0; j < x; j++)
+            {
+                if (i <= j)
+                {
+                    Console.Write(arr[i, j]);
+                }
+                else
+                {
+                    Console.Write("");
+                }
+            }
+        }
+    }
+    public static void Task17()
+    {
+        int[,] arr1 = new int[10, 10];
+        int[,] arr2 = new int[10, 10];
+
+        Console.Write("Input size of first matrix: ");
+        int x = int.Parse(Console.ReadLine());
+        Console.Write("Input size of second matrix: ");
+        int y = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("First matrix");
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                Console.Write($"element - {i},{j}: ");
+                arr1[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < x; j++)
+            {
+                Console.Write(arr1[i, j]);
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine("Second matrix");
+        for (int i = 0; i < y; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                Console.Write($"element - {i},{j}: ");
+                arr2[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        for (int i = 0; i < y; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                Console.Write(arr2[i, j]);
+            }
+            Console.WriteLine();
+        }
+        bool b = true;
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                if (arr1[i, j] == arr2[i, j])
+                {
+                    b = true;
+                }
+                else
+                {
+                    b = false;
+
+                }
+            }
+        }
+        if (b)
+        {
+            Console.WriteLine("Matrices are equal");
+        }
+        else
+        {
+            Console.WriteLine("Matrices are not equal");
+
+        }
+    }
+    public static void Task18()
+    {
+        Console.Write("Enter size of array: ");
+        int x = int.Parse(Console.ReadLine());
+        int[] arr = new int[x];
+        for (int i = 0; i < x; i++)
+        {
+            Console.Write($"element - {i}: ");
+            arr[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] % 2 == 1)
+            {
+                Console.Write($"Odd numbers are {arr[i]}");
+            }
+        }
+    }
+    public static void Task19()
+    {
+        object[] obj1 = new object[8];
+        obj1[0] = 25;
+        obj1[1] = "Anna";
+        obj1[2] = false;
+        obj1[3] = 25;
+        obj1[4] = "4 / 15 / 2021 12:10:51 PM";
+        obj1[5] = 112.22;
+        obj1[6] = "Anna";
+        obj1[7] = false;
+
+        object [] obj2= obj1.Distinct().ToArray();
+        for (int i = 0; i < obj2.Length; i++)
+        {
+            Console.WriteLine(obj2[i]);
+        }
+
+    }
 }
-
- 
-
