@@ -5,25 +5,25 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Task1();
-        Task2();
-        Task3();
-        Task4();
-        Task5();
-        Task6();
-        Task7();
-        Task8();
-        Task9();
-        Task10();
+        //Task1();
+        //Task2();
+        //Task3();
+        //Task4();
+        //Task5();
+        //Task6();
+        //Task7();
+        //Task8();
+        //Task9();
+        //Task10();
         Task11();
-        Task12();
-        Task13();
-        Task14();
-        Task15();
-        Task16();
-        Task17();
-        Task18();
-        Task19();
+        //Task12();
+        //Task13();
+        //Task14();
+        //Task15();
+        //Task16();
+        //Task17();
+        //Task18();
+        //Task19();
         Console.ReadLine();
     }
 
@@ -289,7 +289,7 @@ internal class Program
     }
     public static void Task11()
     {
-        int[,] arr = new int[2, 2];
+        int[,] arr = new int[255, 255];
         Console.WriteLine("Enter rows size of matrix: ");
         int rows = int.Parse(Console.ReadLine());
         Console.WriteLine("Enter columns size of matrix: ");
